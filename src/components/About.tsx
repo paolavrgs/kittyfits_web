@@ -75,7 +75,7 @@ const About = () => {
       </div>
 
       <div className="w-full lg:hidden">
-        <MobileSlider interval={2000}>
+        <MobileSlider interval={3000}>
           {slides.map((slide) => (
             <div key={slide.id} className="relative w-full aspect-[3/4] rounded-3xl overflow-hidden group shadow-xl">
               <Image
