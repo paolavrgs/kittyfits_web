@@ -1,8 +1,11 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 import { FaWhatsapp } from "react-icons/fa";
 import { FaInstagram } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
+import { trackEvent } from "../lib/gtm";
 
 const Navbar = () => {
   return (
@@ -19,24 +22,72 @@ const Navbar = () => {
       </div>
 
       <div className="hidden md:flex gap-10 text-foreground font-medium text-base">
-        <Link href="#sobre-mi" className="hover:text-primary transition-colors">Sobre mi</Link>
-        <Link href="#mis-servicios" className="hover:text-primary transition-colors">Mis servicios</Link>
-        <Link href="#team-kitty" className="hover:text-primary transition-colors">Team Kitty</Link>
+        <Link href="#sobre-mi" className="hover:text-primary transition-colors">
+          Sobre mi
+        </Link>
+        <Link
+          href="#mis-servicios"
+          className="hover:text-primary transition-colors"
+        >
+          Mis servicios
+        </Link>
+        <Link
+          href="#team-kitty"
+          className="hover:text-primary transition-colors"
+        >
+          Team Kitty
+        </Link>
       </div>
 
       <div className="flex gap-5 items-center text-foreground">
-        <a href="https://wa.link/gdn8fs" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="WhatsApp">
+        <a
+          href="https://wa.link/gdn8fs"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-primary transition-colors"
+          aria-label="WhatsApp"
+          onClick={() => {
+            trackEvent("social_click", {
+              platform: "whatsapp",
+              location: "navbar",
+            });
+          }}
+        >
           <FaWhatsapp size={22} />
         </a>
-        <a href="https://www.instagram.com/kittyy_fits/" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="Instagram">
+        <a
+          href="https://www.instagram.com/kittyy_fits/"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-primary transition-colors"
+          aria-label="Instagram"
+          onClick={() => {
+            trackEvent("social_click", {
+              platform: "instagram",
+              location: "navbar",
+            });
+          }}
+        >
           <FaInstagram size={22} />
         </a>
-        <a href="https://www.tiktok.com/@kittyfits_22" target="_blank" rel="noopener noreferrer" className="hover:text-primary transition-colors" aria-label="TikTok">
+        <a
+          href="https://www.tiktok.com/@kittyfits_22"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="hover:text-primary transition-colors"
+          aria-label="TikTok"
+          onClick={() => {
+            trackEvent("social_click", {
+              platform: "tiktok",
+              location: "navbar",
+            });
+          }}
+        >
           <FaTiktok size={22} />
         </a>
       </div>
     </nav>
   );
-}
+};
 
 export default Navbar;

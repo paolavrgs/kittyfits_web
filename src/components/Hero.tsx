@@ -8,7 +8,10 @@ const Hero = () => {
         <h1 className="text-3xl md:text-5xl text-center md:text-left font-bold text-primary leading-[1.1] tracking-tight uppercase">
           Si no vienes con todo, <br /> ¿a qué vienes?
         </h1>
-        <OpenModalButton className="cursor-pointer bg-primary text-background px-10 py-4 rounded-xl text-md md:text-xl font-bold uppercase hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+        <OpenModalButton
+          ctaLocation="hero"
+          className="cursor-pointer bg-primary text-background px-10 py-4 rounded-xl text-md md:text-xl font-bold uppercase hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+        >
           Trabajemos juntos
         </OpenModalButton>
       </div>
@@ -17,7 +20,7 @@ const Hero = () => {
         <div className="relative w-full h-full max-w-lg md:max-w-xl lg:max-w-2xl">
           <Image
             src="/assets/oficial_1.png"
-            alt="Coach Kittyfits"
+            alt="Kitty Fits | Entrenadora Personal"
             fill
             className="object-contain object-bottom md:object-right-bottom"
             priority
@@ -27,6 +30,6 @@ const Hero = () => {
       </div>
     </section>
   );
-}
+};
 
 export default Hero;

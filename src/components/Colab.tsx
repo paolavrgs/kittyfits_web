@@ -27,7 +27,7 @@ const Colab = () => {
           deporte y el alto rendimiento.
         </p>
 
-        <OpenModalButton subject="Colaboraciones" className="mt-4 bg-primary text-background px-12 py-4 rounded-xl text-lg font-bold uppercase hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 cursor-pointer">
+        <OpenModalButton ctaLocation="colaboraciones" subject="Colaboraciones" className="mt-4 bg-primary text-background px-12 py-4 rounded-xl text-lg font-bold uppercase hover:bg-opacity-90 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1 cursor-pointer">
           Hablemos
         </OpenModalButton>
       </div>
