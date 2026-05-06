@@ -129,6 +129,7 @@ Create a `.env.local` file at the root with the following:
 ```env
 # WhatsApp
 NEXT_PUBLIC_WHATSAPP_NUMBER=584XXXXXXXXX
+NEXT_PUBLIC_GTM_ID='GTM-XXXXXXX'    # optional but recommended for analytics
 ```
 
 > Variables prefixed with `NEXT_PUBLIC_` are exposed to the browser. Never store sensitive secrets with this prefix.
