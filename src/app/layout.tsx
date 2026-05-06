@@ -33,7 +33,7 @@ const playfair = Playfair_Display({
 
 export const metadata: Metadata = {
   title: "Kitty Fits | Entrenadora Personal",
-  description: "Si no vienes a todo, ¿a qué vienes?",
+  description: "Si no vienes por todo, ¿a qué vienes?",
   keywords: [
     "entrenadora personal",
     "entrenamiento personal",
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Kitty Fits | Entrenadora Personal",
-    description: "Si no vienes a todo, ¿a qué vienes?",
+    description: "Si no vienes por todo, ¿a qué vienes?",
     url: "https://kittyfits.com",
     siteName: "Kitty Fits",
     locale: "es_VE",

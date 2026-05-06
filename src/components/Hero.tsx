@@ -6,7 +6,7 @@ const Hero = () => {
     <section className="flex flex-col md:flex-row items-center justify-between px-8 md:px-16 pt-12 pb-0 w-full max-w-[1440px] mx-auto min-h-[calc(100vh-100px)]">
       <div className="flex flex-col items-center md:items-start gap-5 md:gap-10 z-10">
         <h1 className="text-3xl md:text-5xl text-center md:text-left font-bold text-primary leading-[1.1] tracking-tight uppercase">
-          Si no vienes con todo, <br /> ¿a qué vienes?
+          Si no vienes por todo, <br /> ¿a qué vienes?
         </h1>
         <OpenModalButton
           ctaLocation="hero"
