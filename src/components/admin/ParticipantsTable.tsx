@@ -1,5 +1,10 @@
 import type { Registration } from "../../db/schema";
-import { formatDateTime, toWhatsAppNumber } from "../../lib/format";
+import {
+  formatAmountBs,
+  formatBolivares,
+  formatDateTime,
+  toWhatsAppNumber,
+} from "../../lib/format";
 
 const ParticipantsTable = ({
   participants,
@@ -16,6 +21,7 @@ const ParticipantsTable = ({
             <th className="px-4 py-3">Teléfono</th>
             <th className="px-4 py-3">Edad</th>
             <th className="px-4 py-3">Lesión</th>
+            <th className="px-4 py-3">Monto</th>
             <th className="px-4 py-3">Referencia</th>
             <th className="px-4 py-3">Capture</th>
             <th className="px-4 py-3">Registro</th>
@@ -49,6 +55,14 @@ const ParticipantsTable = ({
                   <span className="text-red-700">Sí: {p.injuryDetails}</span>
                 ) : (
                   "No"
+                )}
+              </td>
+              <td className="px-4 py-3 whitespace-nowrap">
+                <span className="font-bold">{formatAmountBs(p.amountBs)}</span>
+                {p.bcvRate && (
+                  <span className="block text-xs text-primary/60">
+                    Tasa {formatBolivares(Number(p.bcvRate))}
+                  </span>
                 )}
               </td>
               <td className="px-4 py-3 font-mono">{p.paymentReference}</td>

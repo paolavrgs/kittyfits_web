@@ -2,6 +2,7 @@ import {
   boolean,
   date,
   integer,
+  numeric,
   pgTable,
   serial,
   text,
@@ -33,6 +34,11 @@ export const registrations = pgTable("registrations", {
   age: integer("age").notNull(),
   hasInjury: boolean("has_injury").notNull(),
   injuryDetails: text("injury_details"),
+  // Monto a pagar calculado con la tasa BCV vigente al inscribirse
+  // (null si no se pudo obtener la tasa). No está verificado contra el banco.
+  amountBs: numeric("amount_bs", { precision: 14, scale: 2 }),
+  bcvRate: numeric("bcv_rate", { precision: 14, scale: 4 }),
+  bcvRateDate: date("bcv_rate_date"),
   paymentReference: text("payment_reference").notNull(),
   // Ruta del archivo en el Blob store privado; se sirve solo vía /admin
   paymentCapturePathname: text("payment_capture_pathname").notNull(),

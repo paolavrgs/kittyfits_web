@@ -48,10 +48,10 @@ const AdminEventDetail = async ({
         </div>
         {participants.length > 0 && (
           <a
-            href={`/admin/eventos/${event.slug}/csv`}
+            href={`/admin/eventos/${event.slug}/pdf`}
             className="bg-primary text-background font-bold text-sm rounded-xl px-5 py-3 w-fit hover:bg-opacity-90"
           >
-            Descargar CSV
+            Descargar PDF
           </a>
         )}
       </div>

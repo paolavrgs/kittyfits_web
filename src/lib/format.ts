@@ -39,3 +39,7 @@ export const formatRateDate = (isoDate: string) =>
     month: "2-digit",
     timeZone: "UTC",
   });
+
+// Columnas numeric de Postgres llegan como texto: "12855.09" -> "Bs. 12.855,09"
+export const formatAmountBs = (amountBs: string | null) =>
+  amountBs === null ? "—" : `Bs. ${formatBolivares(Number(amountBs))}`;

@@ -5,7 +5,7 @@ import RegistrationForm from "../../components/power-beach/RegistrationForm";
 import SponsorsCarousel from "../../components/power-beach/SponsorsCarousel";
 import Footer from "../../components/Footer";
 import { getEventAvailability } from "../../db/queries";
-import { getBcvRate } from "../../lib/bcv";
+import { getBcvRate, toBolivares } from "../../lib/bcv";
 import { formatBolivares, formatRateDate } from "../../lib/format";
 import { POWER_BEACH_SLUG, PRICE_USD } from "./constants";
 import type { PaymentAmount } from "../../components/power-beach/PaymentInfo";
@@ -40,7 +40,7 @@ const PowerBeach = async () => {
 
   let paymentAmount: PaymentAmount | null = null;
   if (bcv) {
-    const amount = Math.round(PRICE_USD * bcv.rate * 100) / 100;
+    const amount = toBolivares(PRICE_USD, bcv.rate);
     paymentAmount = {
       display: formatBolivares(amount),
       copyValue: amount.toFixed(2).replace(".", ","),

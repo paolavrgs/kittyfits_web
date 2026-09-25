@@ -5,10 +5,12 @@ import { put } from "@vercel/blob";
 import { eq } from "drizzle-orm";
 import { db, sql } from "../../db";
 import { events } from "../../db/schema";
+import { getBcvRate, toBolivares } from "../../lib/bcv";
 import {
   ALLOWED_CAPTURE_TYPES,
   MAX_CAPTURE_BYTES,
   POWER_BEACH_SLUG,
+  PRICE_USD,
 } from "./constants";
 
 export type RegistrationResult = {
@@ -62,6 +64,10 @@ export const registerParticipant = async (
     return { error: "El evento no está disponible." };
   }
 
+  // Misma tasa (en caché) que se le mostró en la página al pagar
+  const bcv = await getBcvRate();
+  const amountBs = bcv ? toBolivares(PRICE_USD, bcv.rate) : null;
+
   let status: RegistrationResult["status"];
   try {
     const extension = capture.name.split(".").pop()?.toLowerCase() || "bin";
@@ -79,11 +85,13 @@ export const registerParticipant = async (
       sql`
         INSERT INTO registrations (
           event_id, first_name, last_name, phone, age, has_injury,
-          injury_details, payment_reference, payment_capture_pathname, status
+          injury_details, amount_bs, bcv_rate, bcv_rate_date,
+          payment_reference, payment_capture_pathname, status
         )
         SELECT
           ${event.id}, ${firstName}, ${lastName}, ${phone}, ${age}, ${hasInjury},
-          ${hasInjury ? injuryDetails : null}, ${paymentReference}, ${blob.pathname},
+          ${hasInjury ? injuryDetails : null}, ${amountBs}, ${bcv?.rate ?? null},
+          ${bcv?.date ?? null}, ${paymentReference}, ${blob.pathname},
           CASE
             WHEN ${event.capacity}::int IS NULL OR (
               SELECT count(*) FROM registrations

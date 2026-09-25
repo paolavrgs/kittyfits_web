@@ -53,6 +53,7 @@ const sponsors: Sponsor[] = [
     height: 190,
   },
   { name: "Odontocenter", file: "odontocenter.png", width: 600, height: 126 },
+  { name: "Paolab Creative Lab", file: "paolab.png", width: 600, height: 198 },
   { name: "Quiropedia Dilia", file: "quiropedia.png", width: 600, height: 530 },
   {
     name: "Sabor Hogareño",
@@ -104,6 +105,9 @@ const SponsorCard = ({ sponsor }: { sponsor: Sponsor }) => (
           fill
           className="object-contain"
           sizes="176px"
+          // El carrusel se mueve solo: con carga diferida las tarjetas
+          // aparecían vacías un momento al entrar en pantalla
+          loading="eager"
         />
       </div>
     </div>

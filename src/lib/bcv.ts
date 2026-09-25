@@ -134,3 +134,7 @@ export const getBcvRate = async (): Promise<BcvRate | null> => {
   };
   return value;
 };
+
+// Monto en bolívares redondeado a céntimos
+export const toBolivares = (usd: number, rate: number) =>
+  Math.round(usd * rate * 100) / 100;
