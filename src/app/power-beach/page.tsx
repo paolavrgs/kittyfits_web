@@ -65,7 +65,7 @@ const PowerBeach = async () => {
     <div className="min-h-screen bg-background flex flex-col font-sans overflow-hidden">
       <PowerBeachNavbar />
       <main className="flex-1 flex flex-col w-full">
-        <section className="w-full px-8 md:px-16 pt-8 pb-12 md:pb-16 mx-auto max-w-[1440px] flex flex-col items-center text-center gap-6">
+        <section className="w-full px-8 md:px-16 pt-8 pb-4 md:pb-6 mx-auto max-w-[1440px] flex flex-col items-center text-center gap-6">
           <span
             className={`font-bold uppercase tracking-[0.3em] text-sm ${
               isFull ? "text-red-700" : "text-primary"
@@ -108,16 +108,16 @@ const PowerBeach = async () => {
           </ul>
         </section>
 
+        <SponsorsCarousel />
+
         <section
           id="inscripcion"
           className="w-full px-4 md:px-16 pb-12 mx-auto max-w-[1440px] flex justify-center"
         >
           <RegistrationForm isFull={isFull} paymentAmount={paymentAmount} />
         </section>
-
-        <SponsorsCarousel />
       </main>
-      <Footer showTagline={false} />
+      <Footer compact />
     </div>
   );
 };
