@@ -1,0 +1,27 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1790362745875,
+      "tag": "0000_opposite_mandrill",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1790362746609,
+      "tag": "0001_seed_power_beach",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1790363767945,
+      "tag": "0002_capacity_and_status",
+      "breakpoints": true
+    }
+  ]
+}

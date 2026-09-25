@@ -6,7 +6,11 @@ import { FaInstagram } from "react-icons/fa";
 import { FaTiktok } from "react-icons/fa";
 import { trackEvent } from "../lib/gtm";
 
-const Footer = () => {
+interface FooterProps {
+  showTagline?: boolean;
+}
+
+const Footer = ({ showTagline = true }: FooterProps) => {
   return (
     <footer className="w-full px-8 md:px-16 py-12 pb-24 mx-auto max-w-[1440px]">
       <div className="w-full bg-[#EAE5DB] rounded-3xl py-16 px-8 flex flex-col items-center justify-center gap-8">
@@ -19,11 +23,13 @@ const Footer = () => {
           />
         </div>
 
-        <h2 className="text-lg lg:text-3xl font-bold text-foreground uppercase text-center max-w-3xl leading-[1]">
-          Sígueme para motivación,
-          <br />
-          disciplina y chismecitos reales
-        </h2>
+        {showTagline && (
+          <h2 className="text-lg lg:text-3xl font-bold text-foreground uppercase text-center max-w-3xl leading-[1]">
+            Sígueme para motivación,
+            <br />
+            disciplina y chismecitos reales
+          </h2>
+        )}
 
         <div className="flex items-center gap-8 mt-4 text-foreground">
           <a
