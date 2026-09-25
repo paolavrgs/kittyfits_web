@@ -6,6 +6,7 @@ import Team from "../components/Team";
 import Testimonials from "../components/Testimonials";
 import Colab from "../components/Colab";
 import Footer from "../components/Footer";
+import PowerBeachPromo from "../components/PowerBeachPromo";
 
 const Home = () => {
   return (
@@ -20,6 +21,7 @@ const Home = () => {
         <Colab />
       </main>
       <Footer />
+      <PowerBeachPromo />
     </div>
   );
 }
