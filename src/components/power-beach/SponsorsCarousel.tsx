@@ -32,6 +32,13 @@ const sponsors: Sponsor[] = [
   { name: "4to Muelle", file: "cuarto_muelle.png", width: 550, height: 320 },
   { name: "Eseence", file: "eseence.png", width: 600, height: 123 },
   {
+    name: "Eva Vargas Fotógrafa",
+    file: "evavargas_ph.png",
+    width: 600,
+    height: 203,
+    darkBackground: true,
+  },
+  {
     name: "Tini Pastelería & Repostería",
     file: "frambuesa.png",
     width: 600,
@@ -61,8 +68,21 @@ const sponsors: Sponsor[] = [
     width: 600,
     height: 600,
   },
+  {
+    name: "Samantha Hernandez Odontología",
+    file: "od_samantha.png",
+    width: 600,
+    height: 198,
+    darkBackground: true,
+  },
   { name: "Sweet Love", file: "sweet_love.png", width: 600, height: 477 },
   { name: "Ultra Care", file: "ultracare.png", width: 513, height: 600 },
+  {
+    name: "Veronica Paez Médico Cirujano y Estético",
+    file: "veronica_paez.png",
+    width: 600,
+    height: 350,
+  },
   { name: "Waby's Place", file: "wabys.png", width: 600, height: 600 },
   {
     name: "Xtreme Evolution Fitness",
