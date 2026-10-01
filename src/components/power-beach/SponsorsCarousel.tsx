@@ -41,7 +41,7 @@ const sponsors: Sponsor[] = [
   {
     name: "Chloe",
     file: "chloe.png",
-    instagram: "chloe.ve",
+    instagram: "chloe.ve_",
     width: 600,
     height: 275,
   },
@@ -135,7 +135,7 @@ const sponsors: Sponsor[] = [
   {
     name: "Odontocenter",
     file: "odontocenter.png",
-    instagram: "odontocenter",
+    instagram: "odontocenter.pf",
     width: 600,
     height: 126,
   },
@@ -170,7 +170,7 @@ const sponsors: Sponsor[] = [
   {
     name: "Samantha Hernandez Odontología",
     file: "od_samantha.png",
-    instagram: "od.samanthahernandez",
+    instagram: "od.samanthaahernandez",
     width: 600,
     height: 198,
     darkBackground: true,
