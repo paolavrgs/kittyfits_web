@@ -1,9 +1,9 @@
 @import "tailwindcss";
 
 :root {
-  --background: #F4F3EE;
-  --foreground: #0F111A;
-  --primary: #9E806B;
+  --background: #f4f3ee;
+  --foreground: #0f111a;
+  --primary: #9e806b;
 }
 
 @theme inline {
@@ -34,15 +34,22 @@ html {
 }
 
 .animate-marquee {
-  animation: marquee 60s linear infinite;
+  animation: marquee 40s linear infinite;
 }
 
-.animate-marquee:hover {
+/* Misma animación en sentido contrario (segunda fila de patrocinantes) */
+.animate-marquee-reverse {
+  animation: marquee 40s linear infinite reverse;
+}
+
+.animate-marquee:hover,
+.animate-marquee-reverse:hover {
   animation-play-state: paused;
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .animate-marquee {
+  .animate-marquee,
+  .animate-marquee-reverse {
     animation: none;
   }
 }

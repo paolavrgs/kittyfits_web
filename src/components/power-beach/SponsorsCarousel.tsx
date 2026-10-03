@@ -16,7 +16,8 @@ interface Sponsor {
 }
 
 // Para agregar un patrocinante: guardar el logo en public/assets/sponsors/
-// (PNG transparente, recortado al contenido) y añadirlo a esta lista.
+// (PNG transparente, recortado al contenido) y añadirlo a esta lista
+// (en cualquier posición: se ordena por nombre más abajo).
 const sponsors: Sponsor[] = [
   {
     name: "All Blue",
@@ -211,7 +212,58 @@ const sponsors: Sponsor[] = [
     height: 224,
     darkBackground: true,
   },
+  {
+    name: "Alcosto",
+    file: "alcosto_ve.png",
+    instagram: "alcosto_ve",
+    width: 600,
+    height: 234,
+  },
+  {
+    name: "Amori Shop",
+    file: "amorishop.ve.png",
+    instagram: "amorishop.ve",
+    width: 600,
+    height: 584,
+  },
+  {
+    name: "AV Boutique",
+    file: "avboutique_pf.png",
+    instagram: "avboutique_pf",
+    width: 600,
+    height: 175,
+  },
+  {
+    name: "Cartoon Fans",
+    file: "cartoonfanspf.png",
+    instagram: "cartoonfanspf",
+    width: 600,
+    height: 581,
+  },
+  {
+    name: "Hornito Healthy",
+    file: "hornitohealthy.png",
+    instagram: "hornitohealthy",
+    width: 600,
+    height: 287,
+  },
+  {
+    name: "By Bet Studio",
+    file: "studio.bet.png",
+    instagram: "studio.bet",
+    width: 600,
+    height: 319,
+  },
+  {
+    name: "Villa Suite Motel",
+    file: "villasuitemotel.png",
+    width: 600,
+    height: 325,
+  },
 ];
+
+// Se muestran en orden alfabético, sin importar el orden de la lista de arriba
+sponsors.sort((a, b) => a.name.localeCompare(b.name, "es"));
 
 // Proporción ancho/alto del área útil de la tarjeta
 const BOX_RATIO = 2.2;
@@ -282,6 +334,33 @@ const SponsorCard = ({
   );
 };
 
+// Dos filas: la primera mitad (A–L aprox.) y la segunda mitad del alfabeto
+const half = Math.ceil(sponsors.length / 2);
+const rows = [sponsors.slice(0, half), sponsors.slice(half)];
+
+const MarqueeRow = ({
+  items,
+  reverse,
+}: {
+  items: Sponsor[];
+  reverse?: boolean;
+}) => (
+  <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
+    <div
+      className={`flex w-max ${
+        reverse ? "animate-marquee-reverse" : "animate-marquee"
+      }`}
+    >
+      {/* La lista se duplica para que el desplazamiento sea continuo */}
+      {[...items, ...items].map((sponsor, i) => (
+        <div key={i} aria-hidden={i >= items.length}>
+          <SponsorCard sponsor={sponsor} isDuplicate={i >= items.length} />
+        </div>
+      ))}
+    </div>
+  </div>
+);
+
 const SponsorsCarousel = () => {
   return (
     <section className="w-full py-8 md:py-10 flex flex-col items-center gap-6 md:gap-8">
@@ -289,18 +368,9 @@ const SponsorsCarousel = () => {
         Nuestros patrocinantes
       </h2>
 
-      <div className="relative w-full overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]">
-        <div className="flex w-max animate-marquee">
-          {/* La lista se duplica para que el desplazamiento sea continuo */}
-          {[...sponsors, ...sponsors].map((sponsor, i) => (
-            <div key={i} aria-hidden={i >= sponsors.length}>
-              <SponsorCard
-                sponsor={sponsor}
-                isDuplicate={i >= sponsors.length}
-              />
-            </div>
-          ))}
-        </div>
+      <div className="w-full flex flex-col gap-4">
+        <MarqueeRow items={rows[0]} />
+        <MarqueeRow items={rows[1]} reverse />
       </div>
     </section>
   );
