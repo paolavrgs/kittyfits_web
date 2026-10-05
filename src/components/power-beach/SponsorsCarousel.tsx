@@ -100,7 +100,7 @@ const sponsors: Sponsor[] = [
   {
     name: "Tini Pastelería & Repostería",
     file: "frambuesa.png",
-    instagram: "thetiny_house",
+    instagram: "somos.tini",
     width: 600,
     height: 361,
   },
