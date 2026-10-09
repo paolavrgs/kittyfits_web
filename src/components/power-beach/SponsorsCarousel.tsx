@@ -260,6 +260,41 @@ const sponsors: Sponsor[] = [
     width: 600,
     height: 325,
   },
+  {
+    name: "Bocaditos",
+    file: "bocaditos_pf.png",
+    instagram: "bocaditos_pf",
+    width: 600,
+    height: 178,
+  },
+  {
+    name: "DallaLuna Bakes",
+    file: "dallalunabakes.png",
+    instagram: "dallalunabakes",
+    width: 600,
+    height: 599,
+  },
+  {
+    name: "Distribuidora Rodrigues",
+    file: "dis_rodrigues.png",
+    instagram: "dis_rodrigues",
+    width: 502,
+    height: 495,
+  },
+  {
+    name: "FisioAna Fisioterapia y Estética Corporal",
+    file: "fisio_anap.png",
+    instagram: "fisio_anap",
+    width: 600,
+    height: 354,
+  },
+  {
+    name: "Pierina Ferreiro",
+    file: "pierinaferreiro.png",
+    instagram: "pierinaferreiro",
+    width: 600,
+    height: 600,
+  },
 ];
 
 // Se muestran en orden alfabético, sin importar el orden de la lista de arriba
